@@ -55,3 +55,10 @@ document.addEventListener("keydown", (e) => {
         searchOverlay.classList.remove("active");
     }
 });
+/* MOBILE MENU */
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});

@@ -480,3 +480,107 @@ gap:30px;
 }
 
 }
+/* ===================================================== */
+/* MENU MOVIL */
+/* ===================================================== */
+
+.menu-movil-btn{
+position:fixed;
+top:20px;
+right:20px;
+font-size:28px;
+color:white;
+cursor:pointer;
+z-index:1001;
+display:none;
+}
+
+
+/* barra lateral */
+
+nav{
+
+transition:0.4s;
+
+}
+
+
+/* overlay fondo */
+
+.menu-overlay{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.6);
+
+opacity:0;
+pointer-events:none;
+
+transition:0.3s;
+
+z-index:999;
+
+}
+
+.menu-overlay.activo{
+
+opacity:1;
+pointer-events:auto;
+
+}
+
+
+/* ================================= */
+/* MODO CELULAR */
+/* ================================= */
+
+@media (max-width:768px){
+
+.menu-movil-btn{
+
+display:block;
+
+}
+
+nav{
+
+position:fixed;
+
+top:0;
+right:-260px;
+
+width:260px;
+height:100vh;
+
+background:#111;
+
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+transition:0.4s;
+
+z-index:1000;
+
+}
+
+nav.activo{
+
+right:0;
+
+}
+
+nav a{
+
+display:block;
+margin:15px 0;
+font-size:18px;
+
+}
+
+}

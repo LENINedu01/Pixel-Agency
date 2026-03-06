@@ -103,3 +103,21 @@ threshold:0.35
 slides.forEach(slide=>{
 observer.observe(slide);
 });
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.querySelector("nav");
+const overlay = document.getElementById("menuOverlay");
+
+menuBtn.addEventListener("click", () => {
+
+nav.classList.toggle("activo");
+overlay.classList.toggle("activo");
+
+});
+
+
+overlay.addEventListener("click", () => {
+
+nav.classList.remove("activo");
+overlay.classList.remove("activo");
+
+});

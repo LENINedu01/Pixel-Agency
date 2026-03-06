@@ -7,12 +7,14 @@ function mostrarSeccion(id){
 const secciones = document.querySelectorAll(".seccion");
 
 /* Oculta todas las secciones */
+
 secciones.forEach(sec => {
 sec.style.display = "none";
 });
 
 
 /* Lógica especial para HOME */
+
 if(id === "home"){
 
 document.getElementById("home").style.display = "flex";
@@ -21,16 +23,33 @@ document.getElementById("info").style.display = "block";
 }
 
 /* Para todas las demás */
+
 else{
 
 document.getElementById(id).style.display = "block";
 
 }
 
+
+/* scroll al inicio */
+
 window.scrollTo({
 top:0,
 behavior:"smooth"
 });
+
+
+/* cerrar menu movil si esta abierto */
+
+const nav = document.querySelector("nav");
+const overlay = document.getElementById("menuOverlay");
+
+if(nav && overlay){
+
+nav.classList.remove("activo");
+overlay.classList.remove("activo");
+
+}
 
 }
 
@@ -68,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
 mostrarSeccion("home");
 
 });
+
+
+
 /* ===================================================== */
 /* ANIMACION DE SERVICIOS AL SCROLL */
 /* ===================================================== */
@@ -100,12 +122,21 @@ threshold:0.35
 
 );
 
-slides.forEach(slide=>{
+slides.forEach(slide => {
 observer.observe(slide);
 });
+
+
+
+/* ===================================================== */
+/* MENU MOVIL */
+/* ===================================================== */
+
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.querySelector("nav");
 const overlay = document.getElementById("menuOverlay");
+
+if(menuBtn){
 
 menuBtn.addEventListener("click", () => {
 
@@ -114,6 +145,9 @@ overlay.classList.toggle("activo");
 
 });
 
+}
+
+if(overlay){
 
 overlay.addEventListener("click", () => {
 
@@ -121,3 +155,5 @@ nav.classList.remove("activo");
 overlay.classList.remove("activo");
 
 });
+
+}

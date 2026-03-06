@@ -20,11 +20,7 @@ if(id === "home"){
 document.getElementById("home").style.display = "flex";
 document.getElementById("info").style.display = "block";
 
-}
-
-/* Para todas las demás */
-
-else{
+}else{
 
 document.getElementById(id).style.display = "block";
 
@@ -39,17 +35,13 @@ behavior:"smooth"
 });
 
 
-/* cerrar menu movil si esta abierto */
+/* cerrar menu movil */
 
 const nav = document.querySelector("nav");
 const overlay = document.getElementById("menuOverlay");
 
-if(nav && overlay){
-
-nav.classList.remove("activo");
-overlay.classList.remove("activo");
-
-}
+if(nav) nav.classList.remove("activo");
+if(overlay) overlay.classList.remove("activo");
 
 }
 
@@ -75,6 +67,58 @@ search.focus();
 }
 
 }
+
+
+
+/* ===================================================== */
+/* MENU MOVIL */
+/* ===================================================== */
+
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.querySelector("nav");
+const overlay = document.getElementById("menuOverlay");
+
+if(menuBtn){
+
+menuBtn.addEventListener("click", () => {
+
+nav.classList.toggle("activo");
+overlay.classList.toggle("activo");
+
+});
+
+}
+
+if(overlay){
+
+overlay.addEventListener("click", () => {
+
+nav.classList.remove("activo");
+overlay.classList.remove("activo");
+
+});
+
+}
+
+
+
+/* ===================================================== */
+/* CLICK EN LINKS DEL MENU */
+/* ===================================================== */
+
+document.querySelectorAll("nav a").forEach(link => {
+
+link.addEventListener("click", function(e){
+
+e.preventDefault();
+
+const id = this.getAttribute("data-seccion");
+
+mostrarSeccion(id);
+
+});
+
+});
 
 
 
@@ -122,38 +166,6 @@ threshold:0.35
 
 );
 
-slides.forEach(slide => {
+slides.forEach(slide=>{
 observer.observe(slide);
 });
-
-
-
-/* ===================================================== */
-/* MENU MOVIL */
-/* ===================================================== */
-
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.querySelector("nav");
-const overlay = document.getElementById("menuOverlay");
-
-if(menuBtn){
-
-menuBtn.addEventListener("click", () => {
-
-nav.classList.toggle("activo");
-overlay.classList.toggle("activo");
-
-});
-
-}
-
-if(overlay){
-
-overlay.addEventListener("click", () => {
-
-nav.classList.remove("activo");
-overlay.classList.remove("activo");
-
-});
-
-}

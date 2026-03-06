@@ -6,45 +6,33 @@ function mostrarSeccion(id){
 
 const secciones = document.querySelectorAll(".seccion");
 
-/* ocultar todas */
-
-secciones.forEach(sec=>{
-sec.style.display="none";
+/* Oculta todas las secciones */
+secciones.forEach(sec => {
+sec.style.display = "none";
 });
 
+/* Lógica especial para HOME */
+if(id === "home"){
 
-/* logica especial HOME */
+document.getElementById("home").style.display = "flex";
+document.getElementById("info").style.display = "block";
 
-if(id==="home"){
+}
+else{
 
-document.getElementById("home").style.display="flex";
-document.getElementById("info").style.display="block";
-
-}else{
-
-document.getElementById(id).style.display="block";
+document.getElementById(id).style.display = "block";
 
 }
 
-
-/* scroll arriba */
+/* cerrar menu movil si está abierto */
+nav.classList.remove("activo");
 
 window.scrollTo({
 top:0,
 behavior:"smooth"
 });
 
-
-/* cerrar menu movil */
-
-const nav = document.querySelector("nav");
-const overlay = document.getElementById("menuOverlay");
-
-if(nav) nav.classList.remove("activo");
-if(overlay) overlay.classList.remove("activo");
-
 }
-
 
 
 /* ===================================================== */
@@ -53,15 +41,15 @@ if(overlay) overlay.classList.remove("activo");
 
 function toggleSearch(){
 
-const search=document.getElementById("searchBar");
+const search = document.getElementById("searchBar");
 
-if(search.style.display==="block"){
+if(search.style.display === "block"){
 
-search.style.display="none";
+search.style.display = "none";
 
 }else{
 
-search.style.display="block";
+search.style.display = "block";
 search.focus();
 
 }
@@ -69,30 +57,28 @@ search.focus();
 }
 
 
-
 /* ===================================================== */
 /* ESTADO INICIAL */
 /* ===================================================== */
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
 mostrarSeccion("home");
 
 });
 
 
-
 /* ===================================================== */
-/* ANIMACION SERVICIOS */
+/* ANIMACION DE SERVICIOS */
 /* ===================================================== */
 
-const slides=document.querySelectorAll(".servicio-slide");
+const slides = document.querySelectorAll(".servicio-slide");
 
-const observer=new IntersectionObserver(
+const observer = new IntersectionObserver(
 
-(entries)=>{
+(entries) => {
 
-entries.forEach(entry=>{
+entries.forEach(entry => {
 
 if(entry.isIntersecting){
 
@@ -108,7 +94,9 @@ entry.target.classList.remove("visible");
 
 },
 
-{threshold:0.35}
+{
+threshold:0.35
+}
 
 );
 
@@ -117,56 +105,37 @@ observer.observe(slide);
 });
 
 
-
 /* ===================================================== */
-/* MENU MOVIL */
+/* MENU HAMBURGUESA */
 /* ===================================================== */
 
-const menuBtn=document.getElementById("menuBtn");
-const nav=document.querySelector("nav");
-const overlay=document.getElementById("menuOverlay");
+const menuBtn = document.getElementById("menuBtn");
 
-if(menuBtn){
+/* seleccionamos el nav correcto */
+const nav = document.querySelector(".navbar nav");
 
-menuBtn.addEventListener("click",()=>{
+menuBtn.addEventListener("click", () => {
 
 nav.classList.toggle("activo");
-overlay.classList.toggle("activo");
 
 });
 
-}
 
+/* ===================================================== */
+/* LINKS DEL MENU MOVIL */
+/* ===================================================== */
 
-if(overlay){
+const links = document.querySelectorAll("nav a[data-seccion]");
 
-overlay.addEventListener("click",()=>{
+links.forEach(link => {
+
+link.addEventListener("click", () => {
+
+const seccion = link.getAttribute("data-seccion");
+
+mostrarSeccion(seccion);
 
 nav.classList.remove("activo");
-overlay.classList.remove("activo");
-
-});
-
-}
-
-
-
-/* ===================================================== */
-/* CLICK EN MENU (LI) */
-/* ===================================================== */
-
-document.querySelectorAll("nav li").forEach(item=>{
-
-item.addEventListener("click",()=>{
-
-const texto=item.textContent.toLowerCase().trim();
-
-if(texto==="home") mostrarSeccion("home");
-if(texto==="servicios") mostrarSeccion("servicios");
-if(texto==="proyectos destacados") mostrarSeccion("proyectos");
-if(texto==="resultados") mostrarSeccion("resultados");
-if(texto==="marcas") mostrarSeccion("marcas");
-if(texto==="contacto") mostrarSeccion("contacto");
 
 });
 

@@ -6,28 +6,28 @@ function mostrarSeccion(id){
 
 const secciones = document.querySelectorAll(".seccion");
 
-/* Oculta todas las secciones */
+/* ocultar todas */
 
-secciones.forEach(sec => {
-sec.style.display = "none";
+secciones.forEach(sec=>{
+sec.style.display="none";
 });
 
 
-/* Lógica especial para HOME */
+/* logica especial HOME */
 
-if(id === "home"){
+if(id==="home"){
 
-document.getElementById("home").style.display = "flex";
-document.getElementById("info").style.display = "block";
+document.getElementById("home").style.display="flex";
+document.getElementById("info").style.display="block";
 
 }else{
 
-document.getElementById(id).style.display = "block";
+document.getElementById(id).style.display="block";
 
 }
 
 
-/* scroll al inicio */
+/* scroll arriba */
 
 window.scrollTo({
 top:0,
@@ -53,15 +53,15 @@ if(overlay) overlay.classList.remove("activo");
 
 function toggleSearch(){
 
-const search = document.getElementById("searchBar");
+const search=document.getElementById("searchBar");
 
-if(search.style.display === "block"){
+if(search.style.display==="block"){
 
-search.style.display = "none";
+search.style.display="none";
 
 }else{
 
-search.style.display = "block";
+search.style.display="block";
 search.focus();
 
 }
@@ -71,62 +71,10 @@ search.focus();
 
 
 /* ===================================================== */
-/* MENU MOVIL */
-/* ===================================================== */
-
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.querySelector("nav");
-const overlay = document.getElementById("menuOverlay");
-
-if(menuBtn){
-
-menuBtn.addEventListener("click", () => {
-
-nav.classList.toggle("activo");
-overlay.classList.toggle("activo");
-
-});
-
-}
-
-if(overlay){
-
-overlay.addEventListener("click", () => {
-
-nav.classList.remove("activo");
-overlay.classList.remove("activo");
-
-});
-
-}
-
-
-
-/* ===================================================== */
-/* CLICK EN LINKS DEL MENU */
-/* ===================================================== */
-
-document.querySelectorAll("nav a").forEach(link => {
-
-link.addEventListener("click", function(e){
-
-e.preventDefault();
-
-const id = this.getAttribute("data-seccion");
-
-mostrarSeccion(id);
-
-});
-
-});
-
-
-
-/* ===================================================== */
 /* ESTADO INICIAL */
 /* ===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
 mostrarSeccion("home");
 
@@ -135,16 +83,16 @@ mostrarSeccion("home");
 
 
 /* ===================================================== */
-/* ANIMACION DE SERVICIOS AL SCROLL */
+/* ANIMACION SERVICIOS */
 /* ===================================================== */
 
-const slides = document.querySelectorAll(".servicio-slide");
+const slides=document.querySelectorAll(".servicio-slide");
 
-const observer = new IntersectionObserver(
+const observer=new IntersectionObserver(
 
-(entries) => {
+(entries)=>{
 
-entries.forEach(entry => {
+entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
@@ -160,12 +108,66 @@ entry.target.classList.remove("visible");
 
 },
 
-{
-threshold:0.35
-}
+{threshold:0.35}
 
 );
 
 slides.forEach(slide=>{
 observer.observe(slide);
+});
+
+
+
+/* ===================================================== */
+/* MENU MOVIL */
+/* ===================================================== */
+
+const menuBtn=document.getElementById("menuBtn");
+const nav=document.querySelector("nav");
+const overlay=document.getElementById("menuOverlay");
+
+if(menuBtn){
+
+menuBtn.addEventListener("click",()=>{
+
+nav.classList.toggle("activo");
+overlay.classList.toggle("activo");
+
+});
+
+}
+
+
+if(overlay){
+
+overlay.addEventListener("click",()=>{
+
+nav.classList.remove("activo");
+overlay.classList.remove("activo");
+
+});
+
+}
+
+
+
+/* ===================================================== */
+/* CLICK EN MENU (LI) */
+/* ===================================================== */
+
+document.querySelectorAll("nav li").forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+const texto=item.textContent.toLowerCase().trim();
+
+if(texto==="home") mostrarSeccion("home");
+if(texto==="servicios") mostrarSeccion("servicios");
+if(texto==="proyectos destacados") mostrarSeccion("proyectos");
+if(texto==="resultados") mostrarSeccion("resultados");
+if(texto==="marcas") mostrarSeccion("marcas");
+if(texto==="contacto") mostrarSeccion("contacto");
+
+});
+
 });

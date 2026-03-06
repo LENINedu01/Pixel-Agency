@@ -484,15 +484,42 @@ gap:30px;
 /* MENU MOVIL */
 /* ===================================================== */
 
+/* BOTON HAMBURGUESA */
+
 .menu-movil-btn{
+
 position:fixed;
-top:20px;
-right:20px;
-font-size:28px;
-color:white;
-cursor:pointer;
-z-index:1001;
+top:22px;
+right:25px;
+
+width:32px;
+height:24px;
+
 display:none;
+
+flex-direction:column;
+justify-content:space-between;
+
+cursor:pointer;
+
+z-index:1100;
+
+}
+
+/* lineas del boton */
+
+.menu-movil-btn span{
+
+display:block;
+width:100%;
+height:3px;
+
+background:linear-gradient(90deg,#d4af37,#f5d77a);
+
+border-radius:3px;
+
+transition:0.3s;
+
 }
 
 
@@ -541,27 +568,36 @@ pointer-events:auto;
 
 @media (max-width:768px){
 
+/* mostrar boton */
+
 .menu-movil-btn{
 
-display:block;
+display:flex;
 
 }
+
+/* menu lateral */
 
 nav{
 
 position:fixed;
 
 top:0;
-right:-260px;
+right:-270px;
 
-width:260px;
+width:270px;
 height:100vh;
 
-background:#111;
+background:#000;
 
+display:flex;
 flex-direction:column;
-justify-content:center;
-align-items:center;
+
+align-items:flex-start;
+
+padding-top:100px;
+
+box-shadow:-5px 0 30px rgba(0,0,0,0.7);
 
 transition:0.4s;
 
@@ -569,17 +605,45 @@ z-index:1000;
 
 }
 
+/* menu abierto */
+
 nav.activo{
 
 right:0;
 
 }
 
+/* enlaces */
+
 nav a{
 
 display:block;
-margin:15px 0;
+
+width:100%;
+
+padding:18px 35px;
+
 font-size:18px;
+
+color:#d4af37;
+
+font-weight:500;
+
+letter-spacing:1px;
+
+border-bottom:1px solid rgba(212,175,55,0.15);
+
+transition:0.3s;
+
+}
+
+/* hover elegante */
+
+nav a:hover{
+
+background:rgba(212,175,55,0.08);
+
+padding-left:45px;
 
 }
 

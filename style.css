@@ -560,12 +560,10 @@ pointer-events:auto;
 
 @media (max-width:768px){
 
-/* mostrar boton */
+/* mostrar boton hamburguesa */
 
 .menu-movil-btn{
-
 display:flex;
-
 }
 
 /* menu lateral */
@@ -600,16 +598,28 @@ z-index:1600;
 /* menu abierto */
 
 nav.activo{
-
 right:0;
+}
+
+/* UL del menu */
+
+nav .menu{
+
+display:flex;
+flex-direction:column;
+
+width:100%;
+
+list-style:none;
+
+margin:0;
+padding:0;
 
 }
 
-/* enlaces */
+/* items del menu */
 
-nav a{
-
-display:block;
+nav .menu li{
 
 width:100%;
 
@@ -625,13 +635,15 @@ letter-spacing:1px;
 
 border-bottom:1px solid rgba(212,175,55,0.15);
 
+cursor:pointer;
+
 transition:0.3s;
 
 }
 
 /* hover elegante */
 
-nav a:hover{
+nav .menu li:hover{
 
 background:rgba(212,175,55,0.08);
 
@@ -639,18 +651,4 @@ padding-left:45px;
 
 }
 
-}
-/* HAMBRUGUESA MENU  */
-.menu-toggle{
-display: none;
-flex-direction: column;
-cursor: pointer;
-gap: 5px;
-}
-
-.menu-toggle span{
-width: 25px;
-height: 3px;
-background: white;
-display: block;
 }

@@ -640,3 +640,17 @@ padding-left:45px;
 }
 
 }
+/* HAMBRUGUESA MENU  */
+.menu-toggle{
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 5px;
+}
+
+.menu-toggle span{
+width: 25px;
+height: 3px;
+background: white;
+display: block;
+}

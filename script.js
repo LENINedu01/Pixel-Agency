@@ -104,15 +104,12 @@ slides.forEach(slide=>{
 observer.observe(slide);
 });
 
-
 /* ===================================================== */
 /* MENU HAMBURGUESA */
 /* ===================================================== */
 
 const menuBtn = document.getElementById("menuBtn");
-
-/* seleccionamos el nav correcto */
-const nav = document.querySelector(".navbar nav");
+const nav = document.getElementById("menu");
 
 menuBtn.addEventListener("click", () => {
 

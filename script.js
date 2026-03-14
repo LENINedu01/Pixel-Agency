@@ -119,24 +119,3 @@ menuBtn.addEventListener("click", () => {
 nav.classList.toggle("activo");
 
 });
-
-
-/* ===================================================== */
-/* LINKS DEL MENU MOVIL */
-/* ===================================================== */
-
-const links = document.querySelectorAll("nav a[data-seccion]");
-
-links.forEach(link => {
-
-link.addEventListener("click", () => {
-
-const seccion = link.getAttribute("data-seccion");
-
-mostrarSeccion(seccion);
-
-nav.classList.remove("activo");
-
-});
-
-});

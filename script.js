@@ -116,3 +116,24 @@ menuBtn.addEventListener("click", () => {
 nav.classList.toggle("activo");
 
 });
+/* ================================= */
+/* SERVICIOS MENU */
+/* ================================= */
+
+function abrirServicio(id){
+
+document.getElementById("menu-servicios").style.display = "none";
+
+document.getElementById(id).style.display = "block";
+
+}
+
+function volverServicios(){
+
+document.getElementById("menu-servicios").style.display = "flex";
+
+document.getElementById("servicio1").style.display = "none";
+document.getElementById("servicio2").style.display = "none";
+document.getElementById("servicio3").style.display = "none";
+
+}

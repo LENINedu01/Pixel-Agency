@@ -110,10 +110,19 @@ observer.observe(slide);
 
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("menu");
+const overlay = document.getElementById("menuOverlay");
 
 menuBtn.addEventListener("click", () => {
 
 nav.classList.toggle("activo");
+overlay.classList.toggle("activo");
+
+
+});
+overlay.addEventListener("click", () => {
+
+nav.classList.remove("activo");
+overlay.classList.remove("activo");
 
 });
 /* ================================= */
@@ -137,3 +146,26 @@ document.getElementById("servicio2").style.display = "none";
 document.getElementById("servicio3").style.display = "none";
 
 }
+/* ================================= */
+/* Salir spush */
+/* ================================= */
+let startX = 0;
+
+document.addEventListener("touchstart", e => {
+
+startX = e.touches[0].clientX;
+
+});
+
+document.addEventListener("touchend", e => {
+
+let endX = e.changedTouches[0].clientX;
+
+if(startX - endX > 80){
+
+nav.classList.remove("activo");
+overlay.classList.remove("activo");
+
+}
+
+});

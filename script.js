@@ -169,3 +169,30 @@ overlay.classList.remove("activo");
 }
 
 });
+/* ===================================================== */
+/* ANIMACION SCROLL MARCAS */
+/* ===================================================== */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function mostrarElementos(){
+
+const windowHeight = window.innerHeight;
+
+reveals.forEach(el => {
+
+const elementTop = el.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+
+el.style.opacity = "1";
+el.style.transform = "translateY(0)";
+el.style.transition = "all 0.8s ease";
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll", mostrarElementos);

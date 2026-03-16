@@ -63,15 +63,30 @@ align-items:center;
 
 .menu li{
 
+font-family:'Poppins', sans-serif;
+
 cursor:pointer;
-font-size:15px;
+
+font-size:16px;
+
+font-weight:600;
+
+letter-spacing:0.5px;
+
+padding:6px 14px;
+
+border-radius:20px;
 
 transition:0.3s;
 
 }
 
 .menu li:hover{
+
 color:#d4af37;
+
+background:rgba(212,175,55,0.15);
+
 }
 
 
@@ -138,13 +153,33 @@ text-align:center;
 
 .hero h1{
 
-font-size:70px;
+font-family:'Playfair Display', serif;
+
+font-size:72px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
 color:#d4af37;
 
 margin-bottom:20px;
+}
+.hero p{
+
+font-family:'Poppins', sans-serif;
+
+font-size:20px;
+
+font-weight:600;
+
+max-width:720px;
+
+margin:auto;
+
+line-height:1.6;
 
 }
-
 
 
 /* ===================================================== */
@@ -226,7 +261,7 @@ font-size:20px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:40px;
+font-size:48px;
 }
 
 .menu{
@@ -252,13 +287,15 @@ text-align:left;
 .info-descripcion p{
 
 color:#ffffff;
+font-weight:700;
 
 font-size:20px;
-line-height:1.8;
 
-margin-bottom:18px;
+max-width:700px;
 
-max-width:750px;
+margin:auto;
+
+line-height:1.6;
 
 }
 /* ===================================================== */
@@ -629,7 +666,8 @@ font-size:18px;
 
 color:#d4af37;
 
-font-weight:500;
+font-weight:600;
+font-family:'Poppins', sans-serif;
 
 letter-spacing:1px;
 
@@ -762,20 +800,133 @@ background-image:url("https://picsum.photos/600/400?event");
 
 display:none;
 
-position:relative;
+position:fixed;
+
+top:0;
+left:0;
 
 width:100%;
-min-height:100vh;
+height:100vh;
 
-padding:80px 20px;
+padding:100px 10%;
 
-max-width:1000px;
+background:#000;
 
-margin:auto;
+overflow-y:auto;
+
+z-index:999;
 
 text-align:center;
 
 animation:fade 0.4s ease;
+
+}
+
+/* ================================= */
+/* LAYOUT SERVICIO */
+/* ================================= */
+
+.servicio-layout{
+
+display:flex;
+justify-content:flex-start;
+
+max-width:1200px;
+margin:auto;
+
+}
+
+/* texto servicio */
+
+.servicio-info{
+
+max-width:650px;
+text-align:left;
+
+}
+
+/* titulo grande */
+
+.servicio-info h3{
+
+font-size:48px;
+color:#d4af37;
+
+margin-bottom:25px;
+
+}
+
+/* texto principal */
+
+.servicio-info p{
+
+font-size:20px;
+line-height:1.8;
+
+margin-bottom:25px;
+
+color:white;
+
+}
+
+/* lista */
+
+.servicio-info ul{
+
+font-size:19px;
+line-height:2;
+
+padding-left:20px;
+
+color:white;
+
+}
+
+/* ================================= */
+/* GALERIA */
+/* ================================= */
+
+.galeria-servicio{
+
+margin-top:70px;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+max-width:1200px;
+
+margin-left:auto;
+margin-right:auto;
+
+}
+
+/* imagenes */
+
+.galeria-servicio img{
+
+width:100%;
+
+height:260px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+transition:0.4s;
+
+}
+
+/* hover imagen */
+
+.galeria-servicio img:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.5);
 
 }
 
@@ -827,5 +978,49 @@ to{
 opacity:1;
 transform:translateY(0);
 }
+
+}
+/* ===================================================== */
+/* VIDEO FONDO SERVICIOS */
+/* ===================================================== */
+
+#servicios{
+position:relative;
+overflow:hidden;
+}
+
+/* video */
+
+.video-servicios{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+z-index:-2;
+
+}
+
+/* capa oscura */
+
+.overlay-servicios{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.65);
+
+z-index:-1;
 
 }

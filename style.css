@@ -1075,3 +1075,72 @@ scrollbar-width:none; /* Firefox */
 display:none;
 
 }
+@media(max-width:768px){
+
+.galeria-servicio{
+
+padding-left:20px;
+padding-right:20px;
+
+}
+
+}
+/* ================================= */
+/* INDICADOR DESLIZAR */
+/* ================================= */
+
+.indicador-swipe{
+
+display:none;
+
+align-items:center;
+
+gap:10px;
+
+color:#d4af37;
+
+font-size:14px;
+
+margin-bottom:15px;
+
+}
+
+/* flecha */
+
+.flecha-swipe{
+
+animation:flechaMover 1.2s infinite;
+
+font-size:20px;
+
+}
+
+/* animacion */
+
+@keyframes flechaMover{
+
+0%{
+transform:translateX(0);
+}
+
+50%{
+transform:translateX(8px);
+}
+
+100%{
+transform:translateX(0);
+}
+
+}
+
+/* solo visible en movil */
+
+@media(max-width:768px){
+
+.indicador-swipe{
+
+display:flex;
+
+}
+
+}

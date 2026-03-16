@@ -155,7 +155,7 @@ text-align:center;
 
 font-family:'Playfair Display', serif;
 
-font-size:72px;
+font-size:80px;
 
 font-weight:700;
 
@@ -169,7 +169,7 @@ margin-bottom:20px;
 
 font-family:'Poppins', sans-serif;
 
-font-size:20px;
+font-size:15px;
 
 font-weight:600;
 
@@ -1022,5 +1022,56 @@ height:100%;
 background:rgba(0,0,0,0.65);
 
 z-index:-1;
+
+}
+/* ===================================================== */
+/* GALERIA SERVICIO - SLIDER MOVIL */
+/* ===================================================== */
+
+@media(max-width:768px){
+
+.galeria-servicio{
+
+display:flex;
+overflow-x:auto;
+
+gap:20px;
+
+scroll-snap-type:x mandatory;
+
+padding-bottom:10px;
+
+}
+
+/* imagen */
+
+.galeria-servicio img{
+
+flex:0 0 80%;
+
+height:220px;
+
+scroll-snap-align:center;
+
+}
+
+}
+/* ================================= */
+/* OCULTAR SCROLL GALERIA */
+/* ================================= */
+
+.galeria-servicio{
+
+scrollbar-width:none; /* Firefox */
+
+-ms-overflow-style:none; /* Internet Explorer / Edge antiguo */
+
+}
+
+/* Chrome, Edge, Safari */
+
+.galeria-servicio::-webkit-scrollbar{
+
+display:none;
 
 }
